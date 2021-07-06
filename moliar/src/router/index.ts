@@ -2,12 +2,12 @@
 // 执行 npm install vue-router@next --save
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import Home from "../components/Home.vue";
+import Template from "../components/Template.vue";
 const routes = [
   {
-    path: "/home",
-    name: "Home",
-    component: Home,
+    path: "/template",
+    name: "Template",
+    component: Template,
   },
 ];
 const router = createRouter({
