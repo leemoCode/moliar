@@ -9,7 +9,7 @@
       </el-button>
       <el-button
         :disabled="isLoading"
-        @click="goMainPage('feature_list')"
+        @click="goMainPage('featureList')"
         >Feature List
       </el-button>
     </div>
