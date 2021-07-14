@@ -2,14 +2,10 @@
   <!-- 渐进式动画效果 -->
   <transition name="el-fade-in-linear">
     <div class="home" v-if="isShowMainPage">
-      <el-button
-        :disabled="true"
-        @click="goMainPage('navigator')"
+      <el-button :disabled="true" @click="goMainPage('navigator')"
         >Navigator
       </el-button>
-      <el-button
-        :disabled="isLoading"
-        @click="goMainPage('featureList')"
+      <el-button :disabled="isLoading" @click="goMainPage('featureList')"
         >Feature List
       </el-button>
     </div>
