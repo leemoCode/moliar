@@ -52,15 +52,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-}
-
 .back-button {
   margin: 5px;
   display: flex;
