@@ -1,15 +1,24 @@
 <template>
   <!-- 渐进式动画效果 -->
   <transition name="el-fade-in-linear">
-    <div class="home" v-if="isShowMainPage">
-      <el-button :disabled="true" @click="goMainPage('navigator')"
+    <div class="home">
+      <el-button
+        :disabled="true"
+        @click="jumpToPage('navigator')"
+        class="nav-button"
         >Navigator
       </el-button>
-      <el-button :disabled="isLoading" @click="goMainPage('feature_list')"
-        >Feature List
+      <el-button
+        :disabled="isLoading"
+        @click="jumpToPage('feature_list')"
+        class="nav-button"
+        >FeatureList
       </el-button>
-      <el-button :disabled="isLoading" @click="goMainPage('hello_world')"
-        >Hello World
+      <el-button
+        :disabled="isLoading"
+        @click="jumpToPage('hello_world')"
+        class="nav-button"
+        >HelloWorld
       </el-button>
     </div>
   </transition>
@@ -23,27 +32,23 @@ export default defineComponent({
   name: 'App',
   setup() {
     const isLoading = ref(false);
-    const isShowMainPage = ref(true);
 
-    const goMainPage = (path: string) => {
+    const jumpToPage = (path: string) => {
       isLoading.value = true;
 
       setTimeout(() => {
-        isShowMainPage.value = false;
         router.push({
           path: '/' + path,
           // query: {
           //   id: "666",
           // },
         });
-      }, 1000);
+      }, 200);
     };
 
     return {
       isLoading,
-      isShowMainPage,
-
-      goMainPage,
+      jumpToPage,
     };
   },
 });
@@ -52,10 +57,15 @@ export default defineComponent({
 <style scoped>
 .home {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 100%;
   height: 100%;
+}
+.nav-button {
+  width: 130px;
+  margin: 5px 0;
 }
 </style>
