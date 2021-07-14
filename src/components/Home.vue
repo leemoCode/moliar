@@ -5,8 +5,11 @@
       <el-button :disabled="true" @click="goMainPage('navigator')"
         >Navigator
       </el-button>
-      <el-button :disabled="isLoading" @click="goMainPage('featureList')"
+      <el-button :disabled="isLoading" @click="goMainPage('feature_list')"
         >Feature List
+      </el-button>
+      <el-button :disabled="isLoading" @click="goMainPage('hello_world')"
+        >Hello World
       </el-button>
     </div>
   </transition>

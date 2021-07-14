@@ -1,18 +1,34 @@
 <template>
-  <Home msg="Welcome to Your Vue.js + TypeScript App" />
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import Home from "./components/Home.vue";
+import { defineComponent, ref } from "vue";
+import router from "./router";
 
-@Options({
-  components: {
-    Home,
+export default defineComponent({
+  name: "App",
+  setup() {
+    const curPage = ref("home");
+
+    router.push({
+      path: curPage.value,
+    });
+
+    return {
+      curPage,
+    };
   },
-})
-export default class App extends Vue {}
+});
 </script>
 
-<style>
+<style scoped>
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
 </style>

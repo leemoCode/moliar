@@ -2,18 +2,24 @@
 // 执行 npm install vue-router@next --save
 import { createRouter, createWebHashHistory } from "vue-router";
 
+import Home from "../components/Home.vue";
 import FeatureList from "../components/FeatureList.vue";
-import LongTouchDemo from "../components/LongTouchDemo.vue";
+import HelloWorld from "../components/HelloWorld.vue";
 const routes = [
   {
-    path: "/featureList",
+    path: "/home",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: "/feature_list",
     name: "FeatureList",
     component: FeatureList,
   },
   {
-    path: "/longTouchDemo",
-    name: "LongTouchDemo",
-    component: LongTouchDemo,
+    path: "/hello_world",
+    name: "HelloWorld",
+    component: HelloWorld,
   },
 ];
 const router = createRouter({
