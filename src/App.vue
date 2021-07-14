@@ -1,6 +1,11 @@
 <template>
-  <div class="back-button" v-longtouch="(longTouchEvent, clickEvent)">
-    <i class="el-icon-arrow-left"></i>
+  <div class="back-button">
+    <div class="back-item">
+      <i class="el-icon-arrow-left" @click="goBack"></i>
+    </div>
+    <div class="back-item">
+      <i class="el-icon-house" v-longtouch="(longTouchEvent, clickEvent)"></i>
+    </div>
   </div>
   <router-view></router-view>
 </template>
@@ -14,30 +19,33 @@ export default defineComponent({
   setup() {
     const homePageName = 'home';
 
-    router.push({
-      path: homePageName,
-    });
-
     const goBack = () => {
       router.go(-1); // 后退一步
     };
 
+    const goHome = () => {
+      router.push({
+        path: homePageName,
+      });
+    };
+
     const longTouchEvent = () => {
-      console.log('goBack');
-      goBack();
+      console.log('goHome');
+      goHome();
     };
 
     const clickEvent = () => {
       console.log('just a test clickEvent');
     };
 
+    goHome();
+
     return {
       homePageName,
 
-      goBack,
-
       longTouchEvent,
       clickEvent,
+      goBack,
     };
   },
 });
@@ -54,6 +62,12 @@ export default defineComponent({
 }
 
 .back-button {
-  margin: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.back-item {
+  margin: 0 5px;
 }
 </style>
