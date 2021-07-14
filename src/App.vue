@@ -1,33 +1,43 @@
 <template>
-  <div class="back-button" @click="goBackHome">
+  <div class="back-button" v-longtouch="(longTouchEvent, clickEvent)">
     <i class="el-icon-arrow-left"></i>
   </div>
   <router-view></router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import router from './router';
 
 export default defineComponent({
   name: 'App',
   setup() {
     const homePageName = 'home';
-    const curPage = ref(homePageName);
 
     router.push({
-      path: curPage.value,
+      path: homePageName,
     });
 
-    const goBackHome = () => {
-      router.push({
-        path: homePageName,
-      });
+    const goBack = () => {
+      router.go(-1); // 后退一步
+    };
+
+    const longTouchEvent = () => {
+      console.log('goBack');
+      goBack();
+    };
+
+    const clickEvent = () => {
+      console.log('just a test clickEvent');
     };
 
     return {
-      curPage,
-      goBackHome,
+      homePageName,
+
+      goBack,
+
+      longTouchEvent,
+      clickEvent,
     };
   },
 });
