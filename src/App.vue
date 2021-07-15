@@ -1,12 +1,15 @@
 <template>
-  <div class="back-button">
-    <div class="back-item">
-      <i class="el-icon-arrow-left" @click="goBack"></i>
+  <!-- 吸顶效果 -->
+  <el-affix :offset="5">
+    <div class="back-button">
+      <div class="back-item">
+        <i class="el-icon-arrow-left" @click="goBack"></i>
+      </div>
+      <div class="back-item">
+        <i class="el-icon-house" v-longtouch="(longTouchEvent, clickEvent)"></i>
+      </div>
     </div>
-    <div class="back-item">
-      <i class="el-icon-house" v-longtouch="(longTouchEvent, clickEvent)"></i>
-    </div>
-  </div>
+  </el-affix>
   <router-view></router-view>
 </template>
 
@@ -53,7 +56,6 @@ export default defineComponent({
 
 <style scoped>
 .back-button {
-  margin: 5px;
   display: flex;
   flex-direction: row;
 }
