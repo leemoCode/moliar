@@ -62,5 +62,6 @@ export default defineComponent({
 
 .back-item {
   margin: 0 5px;
+  font-size: 25px;
 }
 </style>

@@ -3,13 +3,13 @@
   <transition name="el-fade-in-linear">
     <div class="home">
       <el-button
-        :disabled="true"
+        :disabled="isLoading"
         @click="jumpToPage('navigator')"
         class="nav-button"
         >Navigator
       </el-button>
       <el-button
-        :disabled="isLoading"
+        :disabled="true"
         @click="jumpToPage('feature_list')"
         class="nav-button"
         >FeatureList
