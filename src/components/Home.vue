@@ -68,7 +68,7 @@ export default defineComponent({
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: 770px;
 }
 .nav-button {
   width: 130px;
