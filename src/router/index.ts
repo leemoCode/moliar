@@ -6,6 +6,10 @@ import Home from '../components/Home.vue';
 import FeatureList from '../components/FeatureList.vue';
 import HelloWorld from '../components/HelloWorld.vue';
 import Navigator from '../components/Navigator.vue';
+import Topic from '../components/Topic.vue';
+import TopicList from '../components/TopicList.vue';
+import TopicDetail from '../components/TopicDetail.vue';
+import PostDetail from '../components/PostDetail.vue';
 
 const routes = [
   {
@@ -28,6 +32,28 @@ const routes = [
     name: 'Navigator',
     component: Navigator,
   },
+  {
+    path: '/topic',
+    name: 'Topic',
+    component: Topic,
+  },
+  {
+    path: '/topic_list',
+    name: 'TopicList',
+    component: TopicList,
+  },
+  {
+    path: '/topic_detail',
+    name: 'TopicDetail',
+    component: TopicDetail,
+  },
+  {
+    path: '/post_detail',
+    name: 'PostDetail',
+    component: PostDetail,
+  },
+
+  
 ];
 const router = createRouter({
   history: createWebHashHistory(),

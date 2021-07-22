@@ -20,6 +20,12 @@
         class="nav-button"
         >HelloWorld
       </el-button>
+      <el-button
+        :disabled="isLoading"
+        @click="jumpToPage('topic')"
+        class="nav-button"
+        >Topic
+      </el-button>
     </div>
   </transition>
 </template>
