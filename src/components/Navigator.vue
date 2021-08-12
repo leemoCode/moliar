@@ -1,11 +1,24 @@
 <template>
-  <div class="template">
-    <div>{{ msg1 }}</div>
-    <div>{{ msg }}</div>
-    <!-- <div class="test-button" ref="ele" v-test>button</div> -->
-    <div class="load-try ripple">水波纹效果</div>
-    <div class="load-try" @click="tst">普通效果</div>
+  <div class="minirefresh-wrap" id="minirefresh">
+    <div class="minirefresh-scroll">
+      <div class="template" slot="content">
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg1 }}</div>
+        <div>{{ msg }}</div>
+        <!-- <div class="test-button" ref="ele" v-test>button</div> -->
+        <div class="load-try ripple">水波纹效果</div>
+        <div class="load-try" @click="tst">普通效果</div>
+      </div>
+    </div>
   </div>
+  <!-- <MiniRefresh id="minirefresh"> -->
+
+  <!-- </MiniRefresh> -->
 </template>
 
 <script lang="ts">
@@ -13,25 +26,16 @@ import { defineComponent, ref } from 'vue';
 import { useNavigator } from '../controller/useNavigator';
 // import { test } from '../controller/useRipple/index.js';
 
+// import MiniRefresh from './MiniRefresh.vue';
+
+import 'minirefresh/dist/debug/minirefresh.css';
+import MiniRefreshTools from 'minirefresh';
+
 export default defineComponent({
   name: 'Navigator',
-  // directives: {
-  //   test: {
-  //     mounted(el, binding, vnode) {
-  //       const style = {
-  //         color: 'rgba($color: #000000, $alpha: 0.03)',
-  //         scaleDuration: '400ms',
-  //         opacityEnterDuration: '217ms',
-  //         opacityLeaveDuration: '150ms',
-  //         radiu: 30,
-  //         circle: false,
-  //         delay: false,
-  //       };
-
-  //       test.bind(el, style, vnode);
-  //     },
-  //   },
-  // },
+  components: {
+    // MiniRefresh,
+  },
   setup() {
     const { msg } = useNavigator();
 
@@ -42,6 +46,30 @@ export default defineComponent({
     const tst = () => {
       console.log('11');
     };
+
+    console.log('11');
+
+    setTimeout(() => {
+      const miniRefresh = new MiniRefreshTools.theme.defaults({
+        container: '#minirefresh',
+        down: {
+          callback: function () {
+            // 下拉事件
+
+            // window.location.reload();
+            miniRefresh.endDownLoading();
+          },
+        },
+        up: {
+          callback: function () {
+            // 上拉事件
+
+            // 注意，由于默认情况是开启满屏自动加载的，所以请求失败时，请务必endUpLoading(true)，防止无限请求
+            miniRefresh.endUpLoading();
+          },
+        },
+      });
+    }, 200);
 
     return {
       msg,
