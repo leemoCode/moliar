@@ -1,0 +1,30 @@
+.color-ripple__container {
+  color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  touch-action: none;
+  border-radius: inherit;
+}
+.color-ripple__wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.color-ripple-wrapper {
+  & > *:not(.color-ripple__container) {
+    position: relative;
+    z-index: 2;
+  }
+}
